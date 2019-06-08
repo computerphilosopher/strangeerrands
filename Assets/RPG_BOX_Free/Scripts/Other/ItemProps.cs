@@ -96,18 +96,7 @@ public class ItemProps : MonoBehaviour , IPointerClickHandler
 
         if (MyHome == ItemHome.Inventory) //if the item is in the inventory
         {
-            if (ShopManager.IsSellMode)
-            {
-                FromInventoryToSell();
-            }
-            else if (MyItem.itemType == ItemType.Consumable)
-            {
-                ConsumeItem();
-            }
-            else if (MyItem.itemType == ItemType.Gear)
-            {
-                FromInventoryToEquip();
-            }
+            FromInventoryToSell();
         }
 
         else if (MyHome == ItemHome.PlayerBuyTab)//if the item is in the shop
@@ -206,6 +195,8 @@ public class ItemProps : MonoBehaviour , IPointerClickHandler
                 AccInv.RemoveItemFromInventory(MyPlaceInHome);
                 DestroyItem();
             }
+
+            AccShop.AddItemToShop(MyItem);
 
         }
     }
