@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour
     GameObject ItemGoPrefab;
     GameObject InventorySlotPrefab;
 
-    public int Rows =3;
+    public int Rows = 2;
     public int Columns =3;
     public int SlotSize=100;
     public int SpacingBetweenSlots=30;
@@ -272,6 +272,15 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < Columns * Rows; i++)
         {
             Instantiate(InventorySlotPrefab, SlotsParent);
+        }
+    }
+
+    public void Submit()
+    {
+        foreach(KeyValuePair<int, CustomItemAndGo> pair in Inventory)
+        {
+            string name = Inventory[pair.Key].TheItem.itemIcon.name;
+            Debug.Log(name);
         }
     }
 }

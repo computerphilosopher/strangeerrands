@@ -9,7 +9,6 @@ public class ShopManager : MonoBehaviour
 
     List<CustomBoolIntVector2> PositionsAndOccupation = new List<CustomBoolIntVector2>();//list for every position in the inventroy and is it occupied or not
 
-
     //For Test Scene
     public int TestScenePlayerGold;
     Text TestSceneGoldText;
@@ -35,7 +34,7 @@ public class ShopManager : MonoBehaviour
 
     Image SellModeImage;
 
-    public int Rows = 3;
+    public int Rows = 2;
     public int Columns = 3;
     public int SlotSize = 100;
     public int SpacingBetweenSlots = 30;
