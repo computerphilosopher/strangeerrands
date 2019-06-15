@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: cigar
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 9172cbcda7886a14fa8e85daa3e654b6, type: 3}
-  itemName: 
+  itemName: cigar
   SellPrice: 0
   BuyPrice: 0
   itemType: 0
