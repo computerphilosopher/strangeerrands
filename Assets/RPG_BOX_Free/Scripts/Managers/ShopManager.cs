@@ -14,7 +14,6 @@ public class ShopManager : MonoBehaviour
     Text TestSceneGoldText;
     //For Test Scene
 
-
     public Sprite BackgroundSprite;
     public Sprite SlotSprite;
 
@@ -46,8 +45,7 @@ public class ShopManager : MonoBehaviour
     int MaxNumberOfItemsALLinventory;
 
     InventoryManager AccInv;
-
-
+    public LootTable lootTable;
 
     void TransformsLoader()//load needed Transforms
     {
@@ -85,6 +83,7 @@ public class ShopManager : MonoBehaviour
             SellModeImage = GameObject.Find("SellModeButton").GetComponent<Image>();
         }
         MaxNumberOfItemsALLinventory = Columns * Rows;
+
         StartCoroutine(AssignXYPos());
     }
 
