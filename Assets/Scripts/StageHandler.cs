@@ -1,4 +1,5 @@
 ﻿using Mono.Data.Sqlite;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -78,6 +79,11 @@ public class Stage
         get;
     }
 
+    public HashSet<string> AnswerItems
+    {
+        get;
+    }
+
 
     public Stage(int id)
     {
@@ -92,7 +98,6 @@ public class Stage
         dbcmd.CommandText = sqlQuery;
 
         IDataReader reader = dbcmd.ExecuteReader();
-
 
         while (reader.Read())
         {
@@ -111,9 +116,28 @@ public class Stage
             Texture2D successTex = new Texture2D(500, 500);
             successTex.LoadImage(successJpg);
             SuccessImage = Sprite.Create(successTex, new Rect(0, 0, 150, 150), new Vector2(0.5f, 0.5f));
-
             SuccessText = reader.GetString(6);
+            
         }
+        reader.Dispose();
+
+        dbcmd.CommandText = "SELECT ItemName, IsCorrect FROM Answer WHERE QuestionID = " + id.ToString();
+        reader = dbcmd.ExecuteReader();
+
+        AnswerItems = new HashSet<string>();
+
+        while (reader.Read())
+        {
+            string itemName = reader.GetString(0);
+            bool isCorrect = Convert.ToBoolean(reader.GetInt32(1));
+
+            if (isCorrect)
+            {
+                Debug.Log(itemName);
+                AnswerItems.Add(itemName);
+            }
+        }
+
         dbconn.Close();
         reader.Dispose();
     }

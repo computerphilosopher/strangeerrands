@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour 
@@ -275,13 +276,37 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    private bool isCorrect()
+    {
+        StageHandler stageHandler = StageHandler.Handler;
+        HashSet<string> correctItems = stageHandler.CurrentStage.AnswerItems;
+
+        if (correctItems.Count != Inventory.Count)
+        {
+            return false;
+        }
+        foreach (KeyValuePair<int, CustomItemAndGo> pair in Inventory)
+        {
+            string name = Inventory[pair.Key].TheItem.name;
+
+            if (!correctItems.Contains(name))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public void Submit()
     {
-        foreach(KeyValuePair<int, CustomItemAndGo> pair in Inventory)
+        if (isCorrect())
         {
-            string name = Inventory[pair.Key].TheItem.itemIcon.name;
-            Debug.Log(name);
+            Debug.Log("correct");
+            return;
         }
+        Debug.Log("not");
+        SceneManager.LoadScene("badEnding");
     }
 }
 
@@ -291,7 +316,7 @@ public class CustomBoolIntVector2
     public Vector2 aPos;
     public int TabNumber;
 
-    public CustomBoolIntVector2(bool occ,int tab, Vector2 pos)
+    public CustomBoolIntVector2(bool occ, int tab, Vector2 pos)
     {
         IsOccupied = occ;
         TabNumber = tab;
@@ -316,7 +341,7 @@ public class CustomItemIntInt
     public int ItemStacks;
     public int ItemNumberInInventory;
 
-    public CustomItemIntInt(Item item, int itemStacks,int itemNumber)
+    public CustomItemIntInt(Item item, int itemStacks, int itemNumber)
     {
         TheItem = item;
         ItemStacks = itemStacks;

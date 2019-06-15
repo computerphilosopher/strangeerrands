@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/shop.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/badEnding.unity
+    guid: 0ec609d24299dc54b80f9bf8a01220b8
+  - enabled: 1
+    path: Assets/Scenes/question.unity
+    guid: 28e90e6ab7d1f15498a7bfa1cdadeb79
   m_configObjects: {}
