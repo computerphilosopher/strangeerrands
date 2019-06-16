@@ -222,6 +222,12 @@ public class ShopManager : MonoBehaviour
     void RemoveAllItemsFromShop()//removes all items
     {
         List<int> DictShopInvKeys = new List<int>(PlayerBuyInventory.Keys);
+        Debug.Log(DictShopInvKeys.Count);
+
+        if(DictShopInvKeys.Count >= 0)
+        {
+            return;
+        }
 
         for (int i = 0; i < DictShopInvKeys.Count; i++)
         {

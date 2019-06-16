@@ -10,7 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4cd943daa49f7948b37c960e73c1e96, type: 3}
-  m_Name: Normal Monsters
+  m_Name: 01
   m_EditorClassIdentifier: 
-  LootTableName: Normal Monsters
-  Items_DropChance: []
+  LootTableName: 01
+  Items_DropChance:
+  - TheItem: {fileID: 11400000, guid: abf5ee0a5590b5641a23d4073eff9419, type: 2}
+    DropChance: 0
+  - TheItem: {fileID: 11400000, guid: 680e104cf2ed27447923a8721869eb72, type: 2}
+    DropChance: 0
+  - TheItem: {fileID: 11400000, guid: b83660357c6962e4ba3dadfcd7362833, type: 2}
+    DropChance: 0
