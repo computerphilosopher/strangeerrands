@@ -23,6 +23,7 @@ public class Item : ScriptableObject
     public GearMainType gearMainType;
 
     public List<ItemAttribute> Attributes;
+
 }
 
 public enum Rarity

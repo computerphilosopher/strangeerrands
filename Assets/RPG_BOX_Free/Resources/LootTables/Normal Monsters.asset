@@ -13,10 +13,4 @@ MonoBehaviour:
   m_Name: Normal Monsters
   m_EditorClassIdentifier: 
   LootTableName: Normal Monsters
-  Items_DropChance:
-  - TheItem: {fileID: 11400000, guid: b83660357c6962e4ba3dadfcd7362833, type: 2}
-    DropChance: 10
-  - TheItem: {fileID: 11400000, guid: 680e104cf2ed27447923a8721869eb72, type: 2}
-    DropChance: 10
-  - TheItem: {fileID: 11400000, guid: abf5ee0a5590b5641a23d4073eff9419, type: 2}
-    DropChance: 10
+  Items_DropChance: []

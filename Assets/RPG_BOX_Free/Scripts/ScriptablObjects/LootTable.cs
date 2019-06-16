@@ -6,7 +6,7 @@ using UnityEngine;
 public class LootTable : ScriptableObject
 {
     public string LootTableName;
-    public  List<ItemAndDropChance> Items_DropChance;
+    public List<ItemAndDropChance> Items_DropChance;
 
     //returns a list of all items in this loot table
     public List<Item> GetAllItems()
@@ -49,6 +49,12 @@ public class LootTable : ScriptableObject
             }
         }
         return ListToReturn;
+    }
+
+
+    public void AddItem(ItemAndDropChance add)
+    {
+        Items_DropChance.Add(add);
     }
 
 }

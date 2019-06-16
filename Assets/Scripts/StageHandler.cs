@@ -84,6 +84,10 @@ public class Stage
         get;
     }
 
+    public LootTable LootTable
+    {
+        get;
+    }
 
     public Stage(int id)
     {
@@ -121,22 +125,24 @@ public class Stage
         }
         reader.Dispose();
 
-        dbcmd.CommandText = "SELECT ItemName, IsCorrect FROM Answer WHERE QuestionID = " + id.ToString();
+        dbcmd.CommandText = "SELECT ItemName, isCorrect FROM Answer WHERE QuestionID = " + id.ToString();
         reader = dbcmd.ExecuteReader();
 
         AnswerItems = new HashSet<string>();
-
+       
         while (reader.Read())
         {
             string itemName = reader.GetString(0);
             bool isCorrect = Convert.ToBoolean(reader.GetInt32(1));
+            
 
             if (isCorrect)
             {
-                Debug.Log(itemName);
                 AnswerItems.Add(itemName);
             }
         }
+
+        LootTable = new List<LootTable>(Resources.LoadAll<LootTable>("LootTables"))[0];
 
         dbconn.Close();
         reader.Dispose();

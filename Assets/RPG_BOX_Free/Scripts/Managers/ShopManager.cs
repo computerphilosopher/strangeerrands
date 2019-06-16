@@ -45,7 +45,6 @@ public class ShopManager : MonoBehaviour
     int MaxNumberOfItemsALLinventory;
 
     InventoryManager AccInv;
-    public LootTable lootTable;
 
     void TransformsLoader()//load needed Transforms
     {
@@ -83,6 +82,7 @@ public class ShopManager : MonoBehaviour
             SellModeImage = GameObject.Find("SellModeButton").GetComponent<Image>();
         }
         MaxNumberOfItemsALLinventory = Columns * Rows;
+        RerollItemsInShop(StageHandler.Handler.CurrentStage.LootTable);
 
         StartCoroutine(AssignXYPos());
     }
