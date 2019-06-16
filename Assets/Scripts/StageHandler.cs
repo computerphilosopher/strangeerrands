@@ -35,9 +35,9 @@ public class StageHandler
         CurrentStage = new Stage(1);
     }
 
-    public Stage GetStage(int id)
+    public void ChangeStage(int id)
     {
-        return new Stage(id);
+        CurrentStage = new Stage(id);
     }
 
 
@@ -102,6 +102,7 @@ public class Stage
         dbcmd.CommandText = sqlQuery;
 
         IDataReader reader = dbcmd.ExecuteReader();
+
 
         while (reader.Read())
         {
